@@ -1,8 +1,8 @@
 using System;
 
-namespace Elementos
+namespace elementos
 {
-    class Elementos
+    public class Elementos
     {
         public string TipoDeObjeto { get; set; }
         public int Daño { get; set; }
