@@ -1,8 +1,8 @@
 using System;
 
-namespace Hechizos
+namespace hechizos
 {
-    class Hechizos
+    public class Hechizos
     {
         public string Nombre { get; set; }
         public string Tipo { get; set; }
