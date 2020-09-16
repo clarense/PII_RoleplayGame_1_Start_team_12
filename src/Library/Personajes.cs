@@ -33,14 +33,17 @@ namespace personajes
                 {
                     case "Mago":
                     case "mago":
+                    case "1":
                         value = "1";
                         break;
                     case "Elfo":
                     case "elfo":
+                    case "2":
                         value = "2";
                         break;
                     case "Enano":
                     case "enano":
+                    case "3":
                         value = "3";
                         break;
                 }
@@ -59,30 +62,31 @@ namespace personajes
                 switch(Raza)
                 {
                     case "1":
-                        ItemsEquipables = new List<string>() {"Túnica", "Bastón"};
+                        ItemsEquipables = new List<string>() {"Tunica", "Baston"};
                         break;
                     case "2":
                         ItemsEquipables = new List<string>() {"Arco", "Armadura ligera"};
                         break;
                     case "3":
-                        ItemsEquipables = new List<string> () {"Hacha", "Armadura"};
+                        ItemsEquipables = new List<string>() {"Hacha", "Armadura"};
                         break;
                 }
                 if(ItemsEquipables.Contains(item.TipoDeObjeto))
                 {
+                    bool equipped = false;
                     foreach(Elementos objeto in Items)
                     {
                         if(objeto.TipoDeObjeto == item.TipoDeObjeto)
                         {
                             Items.Remove(objeto);
                             Items.Add(item);
+                            equipped = true;
                             break;
                         }
-                        else
-                        {
-                            Items.Add(item);
-                            break;
-                        }
+                    }
+                    if (!equipped)
+                    {
+                        Items.Add(item);
                     }
                 }
             }
