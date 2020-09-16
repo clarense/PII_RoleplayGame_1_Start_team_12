@@ -27,8 +27,8 @@ namespace Main
             var personaje1 = new Personajes ()
             {
                 Nombre = "Gandalf",
-                Raza = "Mago", //poner un int con un identificador que por ejemplo 1 = "Mago"
-                Items = new List<Elementos>() {elemento1, elemento2}, //mirar si se puede hacer con array,
+                Raza = "Mago",
+                Items = new List<Elementos>() {elemento1, elemento2},
                 Vida = 300,
                 Ataque = 40,
                 Defensa = 34,
