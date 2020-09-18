@@ -31,7 +31,7 @@ namespace Main
                 Items = new List<Elementos>() { elemento1, elemento2 },
                 Vida = 300,
                 Ataque = 40,
-                Defensa = 34,
+                Defensa = 0,
             };//tony
 
             var elemento3 = new Elementos()
@@ -54,7 +54,7 @@ namespace Main
                 Raza = "Enano",
                 Items = new List<Elementos>() { elemento3, elemento4 },
                 Vida = 350,
-                Ataque = 15,
+                Ataque = 250,
                 Defensa = 60,
             };//Valentina
 
@@ -92,6 +92,9 @@ namespace Main
 
             Console.WriteLine(personaje1.DefensaTotal());
             Console.WriteLine(personaje1.AtaqueTotal());
+            Console.WriteLine(personaje1.Vida);
+            personaje2.Atacar(personaje1);
+            Console.WriteLine(personaje1.Vida);
             Console.WriteLine("gonza trolo");
 
         }
