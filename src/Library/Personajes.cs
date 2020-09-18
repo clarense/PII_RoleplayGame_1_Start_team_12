@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using elementos;
-
+ 
 namespace personajes
 {
     public class Personajes
@@ -12,49 +12,36 @@ namespace personajes
         {
             get
             {
-                string texto = "";
-                switch(Raza)
-                {
-                    case "1":
-                        texto = "Mago";
-                        break;
-                    case "2":
-                        texto = "Elfo";
-                        break;
-                    case "3":
-                        texto = "Enano";
-                        break;
-                }
-                return texto;
+                return this.raza;
             }
             set
             {
-                switch(raza)
+                switch(value)
                 {
                     case "Mago":
                     case "mago":
                     case "1":
-                        value = "1";
+                        raza = "1";
                         break;
                     case "Elfo":
                     case "elfo":
                     case "2":
-                        value = "2";
+                        raza = "2";
                         break;
                     case "Enano":
                     case "enano":
                     case "3":
-                        value = "3";
+                        raza = "3";
                         break;
                 }
             }
         }
-        private Elementos item;
+        private List<Elementos> items = new List<Elementos>();
         public List<Elementos> Items
         {
             get
             {
-                return this.Items;
+                return this.items;
             }
             set
             {
@@ -71,43 +58,48 @@ namespace personajes
                         ItemsEquipables = new List<string>() {"Hacha", "Armadura"};
                         break;
                 }
-                if(ItemsEquipables.Contains(item.TipoDeObjeto))
+                bool equipped = false;
+                foreach(Elementos objeto in value)
                 {
-                    bool equipped = false;
-                    foreach(Elementos objeto in Items)
+                    if(ItemsEquipables.Contains(objeto.TipoDeObjeto))
                     {
-                        if(objeto.TipoDeObjeto == item.TipoDeObjeto)
-                        {
-                            Items.Remove(objeto);
-                            Items.Add(item);
-                            equipped = true;
-                            break;
-                        }
+                            foreach(Elementos item in Items)
+                            {
+                                if(objeto.TipoDeObjeto == item.TipoDeObjeto)
+                                {
+                                    items.Remove(item);
+                                    items.Add(objeto);
+                                    equipped = true;
+                                    break;
+                                }
+                            }
                     }
                     if (!equipped)
                     {
-                        Items.Add(item);
+                        items.Add(objeto);
                     }
                 }
             }
         }
+        public int vidatotal;
         private int vida;
         public int Vida
         {
             get
             {
-                return this.Vida;
+                return this.vida;
             }
             set
             {
-                if (vida<1)
+                if (value<1)
                 {
-                    value = 1;
+                    vida = 1;
                 }
                 else
                 {
-                    value = vida;
+                    vida = value;
                 }
+                vidatotal = vida;
             }
         }
         private int ataque;
@@ -115,17 +107,17 @@ namespace personajes
         {
             get
             {
-                return this.Ataque;
+                return this.ataque;
             }
             set
             {
-                if (ataque<1)
+                if (value<1)
                 {
-                    value = 1;
+                    ataque = 1;
                 }
                 else
                 {
-                    value = ataque;
+                    ataque = value;
                 }
             }
         }
@@ -134,19 +126,59 @@ namespace personajes
         {
             get
             {
-                return this.Defensa;
+                return this.defensa;
             }
             set
             {
-                if (defensa<0)
+                if (value<0)
                 {
-                    value = 0;
+                    defensa = 0;
                 }
                 else
                 {
-                    value = defensa;
+                    defensa = value;
                 }
             }
         }
+
+        //AtaqueTotal representa el Ataque del personaje más el daño de todos sus items.
+        public int AtaqueTotal()
+        {
+            int ataque = this.Ataque;
+            foreach(Elementos item in Items)
+            {
+                ataque += item.Daño;
+            }
+            return ataque;
+        }
+        
+        //DefensaTotal representa la Armadura Total, incluye la defensa del personaje mas la de todos sus items.
+        public int DefensaTotal()
+        {
+            int defensa = this.Defensa;
+            foreach(Elementos item in Items){
+                defensa += item.Armadura;
+            }
+            return defensa;
+        }
+    
+        //Atacar realiza un ataque sobre el personaje Objetivo teniendo en cuenta la armadura de la unidad.
+        public void Atacar(Personajes objetivo)
+        {
+            if(objetivo.DefensaTotal()>=0)
+            {
+                objetivo.Vida -= 100/(100 + objetivo.DefensaTotal())*this.AtaqueTotal();
+            }
+            else
+            {
+                objetivo.Vida -= (2-100/(100 - objetivo.DefensaTotal()))*this.AtaqueTotal();
+            }
+        }
+
+        public void CurarTotal()
+        {
+            this.Vida = this.vidatotal;
+        }
+
     }
 }

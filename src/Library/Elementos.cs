@@ -5,39 +5,23 @@ namespace elementos
 {
     public class Elementos
     {
-        private string tipodeobjeto;
-        public string TipoDeObjeto
-        {
-            get
-            {
-                return this.TipoDeObjeto;
-            }
-            set
-            {
-
-              List<string> Tipos = new List<string>() {"Tunica", "Baston", "Arco", "Armadura ligera", "Hacha", "Armadura", "RPG", "Escudito"};
-              if (Tipos.Contains(tipodeobjeto))
-                {
-                    value = tipodeobjeto;
-                }
-            }
-        }
+        public string TipoDeObjeto { get; set; }
         private int daño;
         public int Daño
         {
             get
             {
-                return this.Daño;
+                return this.daño;
             }
             set
             {
-                if (daño<0)
+                if (value<0)
                 {
-                    value = 0;
+                    daño = 0;
                 }
                 else
                 {
-                    value = daño;
+                    daño = value;
                 }
             }
         }
@@ -46,17 +30,17 @@ namespace elementos
         {
             get
             {
-                return this.Armadura;
+                return this.armadura;
             }
             set
             {
-                if (armadura<0)
+                if (value<0)
                 {
-                    value = 0;
+                    armadura = 0;
                 }
                 else
                 {
-                    value = armadura;
+                    armadura = value;
                 }
             }
         }
