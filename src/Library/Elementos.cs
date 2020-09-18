@@ -14,7 +14,11 @@ namespace elementos
             }
             set
             {
+<<<<<<< Updated upstream
                 List<string> Tipos = new List<string>() {"Tunica", "Baston", "Arco", "Armadura ligera", "Hacha", "Armadura","RPG","Escudito"};
+=======
+                List<string> Tipos = new List<string>() {"Tunica", "Baston", "Arco", "Armadura ligera", "Hacha", "Armadura", "RPG", "Escudito"};
+>>>>>>> Stashed changes
                 if (Tipos.Contains(tipodeobjeto))
                 {
                     value = tipodeobjeto;

@@ -59,7 +59,11 @@ namespace Main
                 Defensa = 60,
             };//Valentina
 
+<<<<<<< Updated upstream
              var elemento5 = new Elementos ()
+=======
+            var elemento5 = new Elementos ()
+>>>>>>> Stashed changes
             {
                 TipoDeObjeto = "RPG",
                 Daño = 60,

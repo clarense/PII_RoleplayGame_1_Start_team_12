@@ -65,7 +65,7 @@ namespace personajes
                         ItemsEquipables = new List<string>() {"Tunica", "Baston"};
                         break;
                     case "2":
-                        ItemsEquipables = new List<string>() {"Arco", "Armadura ligera"};
+                        ItemsEquipables = new List<string>() {"Arco", "Armadura ligera", "RPG", "Escudito"};
                         break;
                     case "3":
                         ItemsEquipables = new List<string>() {"Hacha", "Armadura"};
