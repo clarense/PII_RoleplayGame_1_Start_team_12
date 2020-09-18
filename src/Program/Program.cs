@@ -59,6 +59,29 @@ namespace Main
                 Defensa = 60,
             };//Valentina
 
+            var elemento5 = new Elementos ()
+            {
+                TipoDeObjeto = "RPG",
+                Daño = 60,
+                Armadura = 0,
+            };
+
+            var elemento6 = new Elementos ()
+            {  
+                TipoDeObjeto = "Escudito",
+                Daño = 0,
+                Armadura = 70,
+            };
+            
+            var personaje3 = new Personajes()
+            {
+                Nombre = "Tony",
+                Raza = "Elfo",
+                Items = new List<Elementos>() {elemento4, elemento5},
+                Vida = 270,
+                Ataque = 80,
+                Defensa = 75,
+            };//Gonzalo
         }
     }
 }
