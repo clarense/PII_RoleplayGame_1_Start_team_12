@@ -165,14 +165,7 @@ namespace personajes
         //Atacar realiza un ataque sobre el personaje Objetivo teniendo en cuenta la armadura de la unidad.
         public void Atacar(Personajes objetivo)
         {
-            if(objetivo.DefensaTotal()>=0)
-            {
-                objetivo.Vida -= 100/(100 + objetivo.DefensaTotal())*this.AtaqueTotal();
-            }
-            else
-            {
-                objetivo.Vida -= (2-100/(100 - objetivo.DefensaTotal()))*this.AtaqueTotal();
-            }
+                objetivo.Vida -= Convert.ToInt32(this.AtaqueTotal() * (1 - 0.1*objetivo.DefensaTotal()/30));
         }
 
         public void CurarTotal()
