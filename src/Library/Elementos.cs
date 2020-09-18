@@ -14,7 +14,7 @@ namespace elementos
             }
             set
             {
-                List<string> Tipos = new List<string>() {"Tunica", "Baston", "Arco", "Armadura ligera", "Hacha", "Armadura"};
+                List<string> Tipos = new List<string>() {"Tunica", "Baston", "Arco", "Armadura ligera", "Hacha", "Armadura","RPG","Escudito"};
                 if (Tipos.Contains(tipodeobjeto))
                 {
                     value = tipodeobjeto;
