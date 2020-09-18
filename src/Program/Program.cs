@@ -95,7 +95,10 @@ namespace Main
             Console.WriteLine(personaje1.Vida);
             personaje2.Atacar(personaje1);
             Console.WriteLine(personaje1.Vida);
-            Console.WriteLine("gonza trolo");
+            Console.WriteLine(personaje1.Vida);
+            personaje1.CurarTotal();
+            Console.WriteLine("curo?");
+            Console.WriteLine(personaje1.Vida);
 
         }
            

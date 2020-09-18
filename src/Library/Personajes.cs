@@ -99,7 +99,7 @@ namespace personajes
                 {
                     vida = value;
                 }
-                vidatotal = vida;
+                vidatotal = this.vida;
             }
         }
         private int ataque;
@@ -165,7 +165,7 @@ namespace personajes
         //Atacar realiza un ataque sobre el personaje Objetivo teniendo en cuenta la armadura de la unidad.
         public void Atacar(Personajes objetivo)
         {
-                objetivo.Vida -= Convert.ToInt32(this.AtaqueTotal() * (1 - 0.1*objetivo.DefensaTotal()/30));
+                objetivo.vida -= Convert.ToInt32(this.AtaqueTotal() * (1 - 0.1*objetivo.DefensaTotal()/30));
         }
 
         public void CurarTotal()
